@@ -1,0 +1,25 @@
+{
+  "name": "log-forward",
+  "version": "0.0.0",
+  "description": "log-forward ===========",
+  "main": "ioserver.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/evan-syntergy/log-forward.git"
+  },
+  "author": "",
+  "license": "BSD",
+  "readmeFilename": "README.md",
+  "gitHead": "278acbcf2e22a625ff4219aa340a928649b2bc0a",
+  "devDependencies": {
+    "socket.io": "~1.0.6"
+  },
+  "dependencies": {
+    "optimist": "~0.6.1",
+    "express": "~4.4.4",
+    "underscore": "~1.6.0"
+  }
+}
