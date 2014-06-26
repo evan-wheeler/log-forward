@@ -25,6 +25,8 @@ server.listen( argv.w );
 
 function onReceiveLogEvent( port, data ) { 
 	var eventData,  dataStr = data.toString();
+    
+    console.log( "Got something: " + data );    
 	
 	try {
 		// parse the incoming log message.
@@ -42,7 +44,19 @@ function onReceiveLogEvent( port, data ) {
 	}
 }
 
+var portNumbers = [];
+
+if( _.isArray( argv.port ) ) { 
+    portNumbers = argv.port;
+}
+else { 
+    portNumbers = [ argv.port ];
+}
+
 _.each( argv.port, function(p) {
+
+    console.log( "Creating server on port: " + p );
+
 	net.createServer( function(receiver) { 
 		receiver.on( 'data', _.partial( onReceiveLogEvent, p ) );
 	} ).listen( p, function() { 
@@ -51,5 +65,6 @@ _.each( argv.port, function(p) {
 } );
 
 io.sockets.on('connection', function (socket) {  
+    console.log( "There was a connection" );
 	socket.join( 'everyone' );
 });
